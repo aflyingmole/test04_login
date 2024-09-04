@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mybatis.MemberMapper">
+<select id="isMember" parameterType="hashmap" resultType="Member">
+    select * from member where id=#{id} and pwd=#{pwd}
+</select>
+
+    <insert id="insert" parameterType="Member">
+        insert into member
+        values(#{id},#{pwd},#{email},#{age},sysdate)
+
+    </insert>
+    <select id="list" resultType="Member" parameterType="hashmap">
+        <![CDATA[
+    	select * from
+		 (
+		  select m.*,rownum rnum from
+		  (
+		     select * from member order by regdate desc
+		  )m
+		)where rnum>=#{startRow} and rnum<=#{endRow}
+	]]>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from member
+    </select>
+
+    <delete id="delete" parameterType="String">
+        delete from member where id=#{id}
+    </delete>
+
+    <update id="update" parameterType="Member">
+        update member
+        set pwd=#{pwd},email=#{email},age=#{age},regdate=#{regdate}
+        where id=#{id}
+    </update>
+
+    <select id="select" resultType="Member">
+        select * from member where id = #{id}
+    </select>
+
+</mapper>
+
+
+
+
+
+
+

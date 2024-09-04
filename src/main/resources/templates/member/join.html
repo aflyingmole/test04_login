@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>join.html</title>
+</head>
+<body>
+<h1>회원가입</h1>
+<form method="post" th:action="@{/member/join}" th:object="${member}">
+    아이디 : <input type="text" name="id" th:field="*{id}"><span th:errors="*{id}"></span><br>
+    비밀번호 : <input type="password" name="pwd" th:field="*{pwd}"><span th:errors="*{pwd}"></span><br>
+    이메일 : <input type="text" name="email" th:field="*{email}"><br>
+    나이 : <input type="text" name="age" th:field="*{age}"><span th:errors="*{age}"></span><br>
+    <input type="submit" value="가입">
+</form>
+</body>
+</html>

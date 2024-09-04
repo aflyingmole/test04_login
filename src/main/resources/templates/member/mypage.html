@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mypage.html</title>
+</head>
+<body>
+아이디 : <span th:text="${member.id}"></span><br>
+비밀번호 : <span th:text="${member.pwd}"></span><br>
+이메일 : <span th:text="${member.email}"></span><br>
+나이 : <span th:text="${member.age}"></span><br>
+가입일 : <span th:text="${member.regdate}"></span><br>
+</body>
+</html>
